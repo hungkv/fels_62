@@ -3,9 +3,17 @@
     <%= link_to I18n.t(:project_name), '/', id: "logo" %> 
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to I18n.t(:menu_home), '/' %></li>
-        <li><%= link_to I18n.t(:menu_help), help_page_path() %></li>
-        <li><%= link_to I18n.t(:menu_about), about_page_path() %></li>
+        <li><%= link_to t(:menu_home), '/' %></li>
+        <li><%= link_to t(:menu_help), help_page_path() %></li>
+        <li><%= link_to t(:menu_about), about_page_path() %></li>
+
+        <% if user_signed_in? %>
+          <li><%= link_to t(:menu_logout), destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to t(:menu_sign_up), new_user_registration_path %></li>
+          <li><%= link_to t(:menu_login), new_user_session_path %></li>
+        <% end %>
+
        </ul>
     </nav>
   </div>
