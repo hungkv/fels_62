@@ -31,4 +31,6 @@ en:
   user: 
     sign_up: "Sign Up"
     login: "Log In"
+  categories:  
+    start: "Start"
 
