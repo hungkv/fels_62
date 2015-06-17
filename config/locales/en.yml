@@ -25,3 +25,10 @@ en:
   menu_home: "Home"
   menu_help: "Help"
   menu_about: "About"
+  menu_login: "Login"
+  menu_logout: "Sign Out"
+  menu_sign_up: "Sign Up"
+  user: 
+    sign_up: "Sign Up"
+    login: "Log In"
+
