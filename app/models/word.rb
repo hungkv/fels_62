@@ -3,4 +3,6 @@ class Word < ActiveRecord::Base
   has_many :answers
   has_many :lesson_words
   has_many :lessons, through: :lesson_words
+  accepts_nested_attributes_for :answers
+  
 end

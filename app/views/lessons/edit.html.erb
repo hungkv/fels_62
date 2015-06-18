@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-12">
+    <h4>
+      <span><%= @lesson.category.title %></span>
+      <span class="answer_counting">1/20</span>
+    </h4>
+    <%= form_for @lesson, html: {class: "col-md-12"}  do |f| %>
+      <%= f.fields_for :lesson_words  do |h| %>
+        <div class="do-lesson">
+          <p class="col-md-3"><strong><%= h.object.word.content %></strong></p>
+          <div class="col-md-9">
+            <%= h.collection_radio_buttons :answer_id, h.object.word.answers, :id, :content do |item| %>
+              <%= item.label(class: 'word-selected radio-inline btn btn-default') { item.radio_button(class: "hidden") + item.text } %>                           
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <%= f.submit t(:next, scope: :lesson), class: "btn btn-primary submit-answer hidden" %>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(".do-lesson").hide()
+  $(".do-lesson:first").show()
+</script>

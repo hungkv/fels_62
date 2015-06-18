@@ -33,4 +33,9 @@ en:
     login: "Log In"
   categories:  
     start: "Start"
+  lesson:
+    next: "Next"
+  message: 
+    success: "Congratulation! You have finished your lesson"
+    error: "Invalid! Please try again"
 
