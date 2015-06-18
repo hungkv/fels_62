@@ -1,1 +1,33 @@
-<h1>Homepage</h1>
+<% if current_user.present? %>
+  <div class="col-md-2 text-center">
+    <%= image_tag current_user.avatar.url, class: "img-responsive" %>
+    <p><%= t(:name, scope: :home) %>: <strong><%= current_user.name || t(:no_name, scope: :home) %></strong></p>
+    <%= link_to t(:edit, scope: :home), edit_user_path(current_user), method: :GET, class: "btn btn-primary" %>
+    <p><%= t(:learned, scope: :home) %> <%= current_user.lessons.sum_learned %> <%= t(:word, scope: :home) %></p>
+  </div>
+  <div class="col-md-10">
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <%= link_to t(:word, scope: :home), lessons_path(), method: :POST, class: "btn btn-primary" %>
+      </div>
+      <div class="col-md-6 text-center">
+        <%= link_to t(:lesson, scope: :home), categories_path(), method: :GET, class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="row">
+      <p><strong><%= t(:activities, scope: :home) %></strong></p>
+      <hr/>
+      <% current_user.lessons.each do |lesson| %>
+        <div class="row">
+          <div class="col-md-2"><%= image_tag current_user.avatar.url, class: "img-responsive icon" %></div>
+          <div class="col-md-10">
+            <p class="learned"><%= t(:learned, scope: :home) %> <%= lesson.answers.learned.count %> <%= t(:word_in_lesson, scope: :home) %> "<%= lesson.category.title %>" - (<%= lesson.created_at.strftime("%F") %>)</p>
+          </div>
+        </div>  
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <h1><%= t(:home_page, scope: :home) %></h1>
+<% end %>
+

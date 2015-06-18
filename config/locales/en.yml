@@ -4,11 +4,11 @@
 #
 # To use the locales, use `I18n.t`:
 #
-#     I18n.t 'hello'
+#     I18n.t "hello"
 #
 # In views, this is aliased to just `t`:
 #
-#     <%= t('hello') %>
+#     <%= t("hello") %>
 #
 # To use a different locale, set it with `I18n.locale`:
 #
@@ -38,4 +38,23 @@ en:
   message: 
     success: "Congratulation! You have finished your lesson"
     error: "Invalid! Please try again"
+  home:
+    word: "Word"
+    lesson: "Lesson"
+    edit: "Edit Profile"
+    learn: "Learned"
+    word_in_lesson: "word in Lesson"
+    activities: "Activities"
+    home_page: "Home Page"
+    name: "Name"
+    no_name: "No Name"
+  edit_profile:
+    edit_profile: "Edit Profile"
+    email: "Email"
+    leave: "Leave blank if you don't want to change password"
+    update: "Update"
+    enter_email: "Enter Email"
+    enter_name: "Enter Name"
+    password: "Password"
+    password_confirm: "Password Confirm"
 

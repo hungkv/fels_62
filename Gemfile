@@ -28,6 +28,8 @@ gem "devise"
 gem "bootstrap-sass",  "3.2.0.0"
 
 gem "will_paginate", "~> 3.0.6"
+
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 # Use ActiveModel has_secure_password
 # gem "bcrypt", "~> 3.1.7"
 
