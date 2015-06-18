@@ -1,10 +1,13 @@
 class Lesson < ActiveRecord::Base
   has_many :lesson_words
   has_many :words, through: :lesson_words
-  belongs_to :category
+  has_many :answers, through: :lesson_words
   belongs_to :user
+  belongs_to :category
   after_create :random_20_words
   accepts_nested_attributes_for :lesson_words
+
+  scope :sum_learned, ->{joins(:lesson_words, :answers).where("answers.is_true = (?)", true).count}
 
   private
   def random_20_words

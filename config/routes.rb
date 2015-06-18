@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :categories, only: :index
   resources :lessons, except: [:delete]
+  resources :users, only: [:update, :edit]
 end
