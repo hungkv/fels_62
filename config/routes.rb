@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   resources :categories, only: :index
   resources :lessons, except: :delete
   resources :users, only: [:update, :edit]
+
   namespace :admin do
     resources :dashbroad, only: :index
     resources :categories
     resources :words
   end
+  resources :words, only: :index
 end

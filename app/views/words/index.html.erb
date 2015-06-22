@@ -1,0 +1,17 @@
+<div class="container">
+  <h2><%= t"words.word_title" %></h2>
+  <div class="col-md-12 word-list-filter">
+    <%= render partial: "words/form_search_words" %>
+  </div>
+  <div class="col-md-12">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <th><%= t :word, scope: :words %></th>
+        <th><%= t :content, scope: :words %></th>
+      </tr>
+      <tbody class="show-word">
+        <%= render @words %>        
+      </tbody>
+    </table>
+  </div>
+</div>
