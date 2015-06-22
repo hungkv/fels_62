@@ -1,0 +1,21 @@
+<% if @lesson.present? %>
+  <div class="container">
+    <div class="result title">
+      <h4><%= @lesson.category.title %> <%= @lesson.mark_point %></h4>
+    </div>
+    <div class="result content">
+      <table class="table table-striple">
+      <tr>
+        <th></th>
+        <th><%= t(:word, scope: :lesson_words) %></th>
+        <th><%= t(:answer, scope: :lesson_words) %></th>
+      </tr>  
+      <tbody>
+        <%= render @lesson_words %>
+      </tbody>
+      </table>
+    </div>
+  </div>
+<% else %>
+  <h4><%= t(:no_data, scope: :lesson_words)%></h4>
+<% end %>

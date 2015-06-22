@@ -8,6 +8,10 @@ class Lesson < ActiveRecord::Base
   accepts_nested_attributes_for :lesson_words
 
   scope :sum_learned, ->{joins(:lesson_words, :answers).where("answers.is_true = (?)", true).count}
+  
+  def mark_point
+    "#{self.lesson_words.answered.count} / #{self.lesson_words.count}"
+  end
 
   private
   def random_20_words

@@ -25,6 +25,8 @@ class LessonsController < ApplicationController
   end
 
   def show
+    @lesson = Lesson.find params[:id] rescue nil
+    @lesson_words = @lesson.lesson_words.answered rescue nil    
   end
 
   private
