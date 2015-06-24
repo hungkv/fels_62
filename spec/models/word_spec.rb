@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Word, type: :model do
-  context "validations" do 
+  context "validations" do
    let!(:word) {FactoryGirl.build :word}
     
     it "should be valid" do 
