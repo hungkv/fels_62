@@ -1,0 +1,20 @@
+<p><strong><%= t :edit_categories, scope: :admin_categories %></strong></p>
+<%= form_for [:admin, @category], html: {method: :PUT} do |f| %>
+  <div class="modal-body">
+    <label><%= t :title, scope: :admin_categories %></label><br/>
+    <div class="form-group">
+      <%= f.text_field :title, autofocus: true, class: "form-control", placeholder: t(:p_title, scope: :admin_categories) %>
+    </div>
+    <label><%= t :description, scope: :admin_categories %></label><br/>
+    <div class="form-group">
+      <%= f.text_field :description, autofocus: true, class: "form-control", placeholder: t(:p_description, scope: :admin_categories) %>
+    </div>
+    <label><%= t :content, scope: :admin_categories %></label><br/>
+    <div class="form-group">
+      <%= f.text_field :content, autocomplete: "off", class: "form-control", placeholder: t(:p_content, scope: :admin_categories) %>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <%= f.submit t(:save, scope: :admin_categories), class: "btn btn-primary" %>
+  </div>
+<% end %>

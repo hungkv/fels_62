@@ -29,3 +29,17 @@ function readURL(input) {
     reader.readAsDataURL(input.files[0]);
   }
 }
+
+$(".do-lesson").hide()
+$(".do-lesson:first").show()
+
+function remove_fields(link) {  
+  $(link).prev("input[type=hidden]").val("1");
+  $(link).closest(".form-group").hide();
+}
+
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $(".add-answers").append(content.replace(regexp, new_id));
+}

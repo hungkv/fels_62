@@ -1,0 +1,6 @@
+<div class="form-group">
+  <label><%= t(:content, scope: :admin_answers) %></label><br/>
+  <%= f.text_field :content, autocomplete: "off", class: "form-control", placeholder: t(:p_content, scope: :admin_words) %>
+  <%= f.radio_button :is_true, true %> <%= f.label :is_true, t(:is_true, scope: :admin_words) %>
+  <%= link_to_remove_fields t(:remove), f %>
+</div>

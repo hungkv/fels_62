@@ -1,0 +1,30 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%= t :create_categories, scope: :admin_categories %></h4>
+      </div>
+      <%= form_for [:admin, @category], html: {method: :POST} do |f| %>
+        <div class="modal-body">
+          <label><%= t :title, scope: :admin_categories %></label><br/>
+          <div class="form-group">
+            <%= f.text_field :title, autofocus: true, class: "form-control", placeholder: t(:p_title, scope: :admin_categories) %>
+          </div>
+          <label><%= t :description, scope: :admin_categories %></label><br/>
+          <div class="form-group">
+            <%= f.text_field :description, autofocus: true, class: "form-control", placeholder: t(:p_description, scope: :admin_categories) %>
+          </div>
+          <label><%= t :content, scope: :admin_categories %></label><br/>
+          <div class="form-group">
+            <%= f.text_field :content, autocomplete: "off", class: "form-control", placeholder: t(:p_content, scope: :admin_categories) %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"><%= t :close, scope: :admin_categories %></button>
+          <%= f.submit t(:save, scope: :admin_categories), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

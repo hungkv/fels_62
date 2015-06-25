@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   get "about", to: "static_pages#about", as: :about_page
   devise_for :users
   resources :categories, only: :index
-  resources :lessons, except: [:delete]
+  resources :lessons, except: :delete
   resources :users, only: [:update, :edit]
+  namespace :admin do
+    resources :dashbroad, only: :index
+    resources :categories
+    resources :words
+  end
 end

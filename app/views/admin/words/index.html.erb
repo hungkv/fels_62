@@ -1,0 +1,15 @@
+<%= render partial: "modal" %>
+<table class="table">
+  <tr>
+    <th><%= t :content, scope: :admin_words %></th>
+    <th></th>
+    <th></th>
+    <th>
+      <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#myModal">
+        <%= t :new, scope: :admin_words %>
+      </button>
+    </th>
+  </tr>
+  <%= render partial: "word", collection: @words %>
+</table>
+<%= will_paginate @words %>
