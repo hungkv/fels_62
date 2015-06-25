@@ -1,0 +1,14 @@
+<tr>
+  <td><%= category.title %></td>
+  <td><%= category.description %></td>
+  <td><%= category.content %></td>
+  <td>
+  <%= link_to t(:show, scope: :admin_categories), admin_category_path(category), method: :GET, class: "btn btn-success pull-right" %>
+  </td>
+  <td>
+  <%= link_to t(:edit, scope: :admin_categories), edit_admin_category_path(category), method: :GET, class: "btn btn-primary pull-right" %>
+  </td>
+  <td>
+  <%= link_to t(:delete, scope: :admin_categories), admin_category_path(category), method: :DELETE, class: "btn btn-danger pull-right", "data-confirm": t(:confirm) %>
+  </td>
+</tr>

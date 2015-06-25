@@ -1,0 +1,12 @@
+<tr>
+  <td><%= word.content %></td>
+  <td>
+    <%= link_to t(:show, scope: :admin_words), admin_word_path(word), method: :GET, class: "btn btn-success pull-right" %>
+  </td>
+  <td>
+    <%= link_to t(:edit, scope: :admin_words), edit_admin_word_path(word), method: :GET, class: "btn btn-primary pull-right" %>
+  </td>
+  <td>
+    <%= link_to t(:delete, scope: :admin_words), admin_word_path(word), method: :DELETE, class: "btn btn-danger pull-right", "data-confirm": t(:confirm) %>
+  </td>
+</tr>

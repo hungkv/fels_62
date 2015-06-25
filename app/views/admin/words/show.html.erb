@@ -1,0 +1,7 @@
+<div class="row">
+  <p><strong><%= t :words_information, scope: :admin_words %></strong></p>
+  <p><strong><%= t :content, scope: :admin_words %>:</strong> <%= @word.content %></p>
+  <% @word.answers.each_with_index do |answer, index| %>
+    <p><strong><%= t :answer, scope: :admin_answers %>-<%= index %>:</strong> <%= answer.content %></p>
+  <% end %>
+</div>

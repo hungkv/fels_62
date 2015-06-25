@@ -1,0 +1,17 @@
+<%= render partial: "modal" %>
+<table class="table">
+  <tr>
+    <th><%= t :title, scope: :admin_categories %></th>
+    <th><%= t :description, scope: :admin_categories %></th>
+    <th><%= t :content, scope: :admin_categories %></th>
+    <th></th>
+    <th></th>
+    <th>
+      <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#myModal">
+        <%= t :new, scope: :admin_categories %>
+      </button>
+    </th>
+  </tr>
+  <%= render partial: "category", collection: @categories %>
+</table>
+<%= will_paginate @categories %>
