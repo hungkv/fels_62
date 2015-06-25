@@ -121,5 +121,6 @@ en:
     word: "Select word"
     content: "Answer"
     answer: "Answer"
-
-
+  words:
+    word_title: "Word Lists"
+    filter: "Filter"
