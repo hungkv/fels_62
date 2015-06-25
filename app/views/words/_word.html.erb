@@ -1,4 +1,4 @@
 <tr>
   <td><%= word.content %></td>
-  <td><%= word.answers.learned.first.content %></td>
+  <td><%= word.answers.learned.first.content rescue nil %></td>
 </tr>

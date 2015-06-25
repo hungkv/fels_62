@@ -80,9 +80,9 @@ ActiveRecord::Schema.define(version: 20150622044216) do
 
   create_table "words", force: :cascade do |t|
     t.integer  "category_id", null: false
-    t.string   "content",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "content"
   end
 
 end

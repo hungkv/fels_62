@@ -1,4 +1,6 @@
 class WordsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @categories = Category.all
     if params[:category_id]
