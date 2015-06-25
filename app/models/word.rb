@@ -6,4 +6,5 @@ class Word < ActiveRecord::Base
   accepts_nested_attributes_for :answers
 
   validates :content, presence: true
+  validates :category, presence: true
 end

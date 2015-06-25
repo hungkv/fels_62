@@ -3,5 +3,4 @@ FactoryGirl.define do
     category
     content Faker::Lorem.words
   end
-
 end

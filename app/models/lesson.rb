@@ -7,6 +7,8 @@ class Lesson < ActiveRecord::Base
   after_create :random_20_words
   accepts_nested_attributes_for :lesson_words
 
+  validates :user, :category, presence: true
+
   scope :sum_learned, ->{joins(:lesson_words, :answers).where("answers.is_true = (?)", true).count}
   
   def mark_point
