@@ -1,26 +1,29 @@
 class LessonsController < ApplicationController
+  before_action :authenticate_user!
+
   def edit
     @lesson = Lesson.find params[:id] rescue nil
   end
 
   def create
-    lesson = current_user.lessons.build category_id: params[:category_id]
-    if lesson.save
+    category = Category.find params[:category_id] rescue nil
+    lesson = current_user.lessons.build category: category if category.present?
+    if lesson && lesson.save
       flash[:notice] = "Lesson create successfully"
-      redirect_to edit_lesson_path(lesson.id)
+      redirect_to edit_lesson_path lesson
     else
-      redirect_to :back
+      redirect_to categories_path
     end
   end
 
   def update
     lesson = Lesson.find params[:id] rescue nil
-    if lesson.update_attributes params_lesson
+    if lesson && lesson.update_attributes(params_lesson)
       flash[:notice] = t "message.success"
       redirect_to lesson_path lesson
     else
       flash[:error] = t "message.error"
-      redirect_to categories_path()
+      redirect_to categories_path
     end
   end
 
