@@ -9,31 +9,31 @@ class Admin::CategoriesController < ApplicationController
   def create
     category = Category.new category_params
     if category.save
-      flash[:notice] = t :create_success, scope: :admin_categories
-      redirect_to admin_category_path category
+      flash[:success] = t :create_success, scope: :admin_categories
+      redirect_to admin_categories_path
     else
-      flash[:notice] = t :create_failed, scope: :admin_categories
-      redirect_to :back
+      flash[:danger] = t :create_failed, scope: :admin_categories
+      redirect_to admin_categories_path
     end
   end
 
   def update
     if @category.update_attributes category_params
-      flash[:notice] = t :update_success, scope: :admin_categories
+      flash[:success] = t :update_success, scope: :admin_categories
       redirect_to admin_categories_path
     else
-      flash[:notice] = t :update_failed, scope: :admin_categories
-      redirect_to :back
+      flash[:danger] = t :update_failed, scope: :admin_categories
+      redirect_to admin_categories_path
     end
   end
 
   def destroy
-    if @category.destroy
-      flash[:notice] = t :delete_success, scope: :admin_categories
+    if @category && @category.destroy
+      flash[:success] = t :delete_success, scope: :admin_categories
       redirect_to admin_categories_path
     else
-      flash[:notice] = t :delete_failed, scope: :admin_categories
-      redirect_to :back
+      flash[:danger] = t :delete_failed, scope: :admin_categories
+      redirect_to admin_categories_path
     end
   end
 
