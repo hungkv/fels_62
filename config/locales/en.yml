@@ -39,6 +39,9 @@ en:
   message: 
     success: "Congratulation! You have finished your lesson"
     error: "Invalid! Please try again"
+    lessons:
+      error: "Could not to create lesson"
+      success: "Lesson created successfully"
   home:
     word: "Word"
     lesson: "Lesson"

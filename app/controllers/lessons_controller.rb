@@ -3,15 +3,17 @@ class LessonsController < ApplicationController
 
   def edit
     @lesson = Lesson.find params[:id] rescue nil
+    redirect_to categories_path unless @lesson
   end
 
   def create
     category = Category.find params[:category_id] rescue nil
     lesson = current_user.lessons.build category: category if category.present?
     if lesson && lesson.save
-      flash[:notice] = "Lesson create successfully"
+      flash[:notice] = t "message.lessons.success"
       redirect_to edit_lesson_path lesson
     else
+      flash[:error] = t "message.lessons.error"
       redirect_to categories_path
     end
   end
